@@ -30,10 +30,30 @@
           html += "<td>" + data[i].date + "</td>";
           html += "<td>" + data[i].topic + "</td>";
           html += "<td>" + data[i].grade + "</td>";
+          html += "<td><button class='delete-btn' data-id='" + data[i].id + "'>Hapus</button></td>";
           html += "</tr>";
         }
 
         $("#attendance-table tbody").html(html);
+      }
+
+      function deleteAttendanceData(id) {
+        $.ajax({
+          url: "http://localhost/assessment_2_pabw/delete_attendance_data.php",
+          method: "GET",
+          data: { id: id },
+          success: function (response) {
+            if (response === "Data berhasil dihapus") {
+              // Remove the deleted row from the table
+              $("#attendance-table tr[data-id='" + id + "']").remove();
+            } else {
+              alert("Gagal menghapus data");
+            }
+          },
+          error: function (error) {
+            console.error("Error deleting data:", error);
+          },
+        });
       }
     </script>
   </head>
@@ -47,6 +67,7 @@
           <th>Tanggal</th>
           <th>Topik</th>
           <th>Kelas</th>
+          <th>Aksi</th>
         </tr>
       </thead>
       <tbody></tbody>
