@@ -1,16 +1,1 @@
-[
-  {
-    "name": "Budi",
-    "subject": "Matematika",
-    "date": "2024-05-06",
-    "topic": "Perkalian dan Pembagian",
-    "grade": "7"
-  },
-  {
-    "name": "Ani",
-    "subject": "Bahasa Indonesia",
-    "date": "2024-05-06",
-    "topic": "Cerita Rakyat",
-    "grade": "5"
-  }
-]
+[{"name":"Tya","subject":"Kimia","date":"2024-05-06","topic":"Besaran","grade":"X"},{"name":"Tya","subject":"Kimia","date":"2024-05-06","topic":"Besaran","grade":"X"}]
