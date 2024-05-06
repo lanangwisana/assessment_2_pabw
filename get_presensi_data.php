@@ -22,6 +22,7 @@ while ($row = $result->fetch_assoc()) {
 
 // Konversi data presensi ke format JSON
 $presensiJSON = json_encode($presensiData);
+file_put_contents('presensi_data.json', $presensiJSON);
 
 // Cetak JSON ke respons
 echo $presensiJSON;
