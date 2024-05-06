@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Presensi Guru JSON</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // AJAX request to fetch attendance data
+        $.ajax({
+          url: "http://localhost/assessment_2_pabw/get_presensi_data.php", // Replace with your PHP file path
+          dataType: "json",
+          success: function (data) {
+            // Process and display the JSON data
+            displayAttendanceData(data);
+          },
+          error: function (error) {
+            console.error("Error fetching data:", error);
+          },
+        });
+      });
+
+      function displayAttendanceData(data) {
+        var html = "";
+        for (var i = 0; i < data.length; i++) {
+          html += "<tr>";
+          html += "<td>" + data[i].name + "</td>";
+          html += "<td>" + data[i].subject + "</td>";
+          html += "<td>" + data[i].date + "</td>";
+          html += "<td>" + data[i].topic + "</td>";
+          html += "<td>" + data[i].grade + "</td>";
+          html += "</tr>";
+        }
+
+        $("#attendance-table tbody").html(html);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Presensi Guru</h1>
+    <table id="attendance-table">
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>Mata Pelajaran</th>
+          <th>Tanggal</th>
+          <th>Topik</th>
+          <th>Kelas</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </body>
+</html>
