@@ -1,7 +1,7 @@
 <?php
 
 // Koneksi ke database
-$db = new mysqli('localhost', 'username', 'password', 'bseconnect_db');
+$db = new mysqli('localhost', 'root', '', 'bseconnect_db');
 
 // Cek koneksi database
 if ($db->connect_error) {
